@@ -1,0 +1,22 @@
+.sweetalert-popup {
+    background-color: #000 !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+    color: white;
+}
+
+.sweetalert-icon {
+    color: white !important;
+}
+
+.sweetalert-confirm-button {
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px yellow;
+    font-family: 'Chakra Petch', sans-serif;;
+    font-size: 18px;
+    text-decoration: none;
+    color: White;
+    background-color: black;
+    justify-self: center;
+}
