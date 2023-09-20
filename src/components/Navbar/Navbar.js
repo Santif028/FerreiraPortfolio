@@ -1,28 +1,18 @@
 
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import usa from "../../images/estados-unidos.png";
 import arg from "../../images/argentina.png";
 import { styles } from "./Navbar.styles.js";
 import DropdownMenu from "./DropdownMenu";
 import NormalMenu from "./NormalMenu";
+import useMobileLayout from '../../hooks/useMobileLayout';
 
 const NavbarComponent = () => {
     const { i18n } = useTranslation();
     const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
-    const [isMobile, setIsMobile] = useState(false);
+    const { isMobile } = useMobileLayout();
 
-    const displayMenu = () => {
-        setIsMobile(window.innerWidth <= 768);
-    };
-
-    useEffect(() => {
-        displayMenu();
-        window.addEventListener('resize', displayMenu);
-        return () => {
-            window.removeEventListener('resize', displayMenu);
-        };
-    }, []);
 
     const toggleLanguage = () => {
         const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
@@ -40,7 +30,7 @@ const NavbarComponent = () => {
 
     return (
         <nav>
-            
+
             {isMobile ? (
                 <DropdownMenu toggleLanguage={toggleLanguage} renderFlagIcon={renderFlagIcon} />
             ) : (
